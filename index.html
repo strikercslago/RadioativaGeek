@@ -1,0 +1,386 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Radioativa Geek: loja geek em Passo Fundo com camisetas, canecas, Funkos, colecionáveis, TCG e presentes criativos."
+    />
+    <title>Radioativa Geek | Loja Geek em Passo Fundo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header" aria-label="Cabeçalho">
+      <a class="brand" href="#inicio" aria-label="Radioativa Geek">
+        <img
+          src="/images/radioativa-logo-transparente.png"
+          alt="Radioativa Geek"
+          class="logo"
+          onerror="this.hidden=true; this.nextElementSibling.hidden=false"
+        />
+        <span class="brand-fallback" hidden>
+          <span class="brand-mark" aria-hidden="true">
+            <span></span><span></span><span></span>
+          </span>
+          <span class="brand-text">
+            <strong>Radioativa</strong>
+            <small>Geek / Nerd</small>
+          </span>
+        </span>
+      </a>
+
+      <button class="menu-toggle" type="button" aria-label="Abrir menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="main-nav" aria-label="Navegação principal">
+        <a href="#inicio">Início</a>
+        <a href="#produtos">Produtos</a>
+        <a href="#sobre">Sobre</a>
+        <a href="#loja-fisica">Loja Física</a>
+        <a href="#contato">Contato</a>
+      </nav>
+
+      <a class="header-cta btn btn-primary-whatsapp" href="https://wa.me/5554996762378" target="_blank" rel="noreferrer" aria-label="Chamar no WhatsApp">
+        Chamar no WhatsApp
+      </a>
+    </header>
+
+    <main>
+      <section class="hero section-dark" id="inicio">
+        <div class="hero-bg placeholder-img" style="--image: url('assets/real-fachada-wide.jpeg')"></div>
+        <div class="hero-noise" aria-hidden="true"></div>
+        <div class="hero-grid" aria-hidden="true"></div>
+        <div class="container hero-content">
+          <h1>
+            <span class="hero-line">A loja  de</span>
+            <span class="hero-line hero-accent">Passo Fundo</span>
+            <span class="hero-line">para quem vive a</span>
+            <span class="hero-line">cultura Geek</span>
+          </h1>
+          <p class="hero-copy">
+            Camisetas, canecas, TCG, colecionáveis, copos térmicos, almofadas, mangás, Hq's, presentes criativos para fãs de animes séries, filmes e games.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary btn-primary-whatsapp" href="https://wa.me/5554996762378" target="_blank" rel="noreferrer" aria-label="Ver produtos pelo WhatsApp">
+              Ver produtos pelo WhatsApp
+            </a>
+            <a class="btn btn-secondary" href="https://www.google.com/maps/search/?api=1&query=R.%20Paissandu%2C%201850%20-%20Passo%20Fundo%2C%20RS" target="_blank" rel="noreferrer">
+              COMO CHEGAR NA LOJA
+            </a>
+          </div>
+        </div>
+        <div class="hero-slash" aria-hidden="true"></div>
+      </section>
+
+      <section class="intro section-dark diagonal-top" aria-labelledby="video-title">
+        <div class="container intro-grid">
+          <div class="intro-copy reveal">
+            <p class="eyebrow">Conheça a</p>
+            <h2 id="video-title">Radioativa Geek</h2>
+            <p>
+              Um lugar onde o tempo parece parar e você revive somente as suas melhores lembranças.
+            </p>
+            <p>
+              
+            </p>
+          </div>
+
+          <button class="video-card reveal" type="button" aria-label="Reproduzir vídeo de apresentação">
+            <span class="video-bg placeholder-img" style="--image: url('assets/real-entrada-vertical.jpeg')"></span>
+            <span class="play-button" aria-hidden="true"></span>
+            <span class="video-bar" aria-hidden="true">
+              <span></span>
+            </span>
+          </button>
+
+          <div class="stats-block reveal">
+            <p class="eyebrow">Radioativa em números</p>
+            <div class="stats-grid" aria-label="Destaques da loja">
+              <article>
+                <span class="line-icon icon-ball" aria-hidden="true"></span>
+                <strong>+10</strong>
+                <small>anos de história</small>
+              </article>
+              <article>
+                <span class="line-icon icon-people" aria-hidden="true"></span>
+                <strong>+7 mil</strong>
+                <small>seguidores no Instagram</small>
+              </article>
+              <article>
+                <span class="line-icon icon-box" aria-hidden="true"></span>
+                <strong>Centenas</strong>
+                <small>de produtos geek</small>
+              </article>
+              <article>
+                <span class="line-icon icon-pin" aria-hidden="true"></span>
+                <strong>Loja física</strong>
+                <small>em Passo Fundo</small>
+              </article>
+            </div>
+            <p class="stats-copy">
+              A Radioativa é o espaço onde geeks, nerds e otakus são 
+              <mark>acolhidos com carinho, ouvidos com atenção e onde se encontram com seu clã!</mark>
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="products section-light diagonal-light" id="produtos" aria-labelledby="products-title">
+        <div class="container">
+          <div class="section-heading reveal">
+            <p class="eyebrow dark">O que você encontra na</p>
+            <h2 id="products-title">Radioativa</h2>
+          </div>
+
+          <div class="product-grid">
+            <article class="product-card reveal">
+              <div class="product-image placeholder-img" style="--image: url('assets/real-camisetas.jpeg')">
+                <span class="card-icon icon-shirt" aria-hidden="true"></span>
+              </div>
+              <h3>Camisetas Geek</h3>
+              <p>Estampas inspiradas em animes, filmes, séries, games e cultura pop.</p>
+              <a class="btn btn-card btn-primary-whatsapp" href="https://wa.me/5554996762378" target="_blank" rel="noreferrer" aria-label="Chamar no WhatsApp">Chamar no WhatsApp</a>
+            </article>
+
+            <article class="product-card reveal">
+              <div class="product-image placeholder-img" style="--image: url('assets/real-canecas.jpeg')">
+                <span class="card-icon icon-mug" aria-hidden="true"></span>
+              </div>
+              <h3>Canecas Criativas</h3>
+              <p>Presentes úteis, divertidos e cheios de personalidade.</p>
+              <a class="btn btn-card btn-primary-whatsapp" href="https://wa.me/5554996762378" target="_blank" rel="noreferrer" aria-label="Chamar no WhatsApp">Chamar no WhatsApp</a>
+            </article>
+
+            <article class="product-card reveal">
+              <div class="product-image placeholder-img" style="--image: url('assets/real-colecionaveis.jpeg')">
+                <span class="card-icon icon-skull" aria-hidden="true"></span>
+              </div>
+              <h3>Funkos e Colecionáveis</h3>
+              <p>Itens para fãs, decoração, coleção e presentes especiais.</p>
+              <a class="btn btn-card btn-primary-whatsapp" href="https://wa.me/5554996762378" target="_blank" rel="noreferrer" aria-label="Chamar no WhatsApp">Chamar no WhatsApp</a>
+            </article>
+
+            <article class="product-card reveal">
+              <div class="product-image placeholder-img" style="--image: url('assets/real-tcg.jpeg')">
+                <span class="card-icon icon-trophy" aria-hidden="true"></span>
+              </div>
+              <h3>TCG e Acessórios</h3>
+              <p>Produtos para quem joga, coleciona e acompanha o universo card game.</p>
+              <a class="btn btn-card btn-primary-whatsapp" href="https://wa.me/5554996762378" target="_blank" rel="noreferrer" aria-label="Chamar no WhatsApp">Chamar no WhatsApp</a>
+            </article>
+
+            <article class="product-card reveal">
+              <div class="product-image placeholder-img" style="--image: url('assets/real-presentes.jpeg')">
+                <span class="card-icon icon-gift" aria-hidden="true"></span>
+              </div>
+              <h3>Presentes Criativos</h3>
+              <p>Opções diferentes para surpreender quem ama o mundo geek.</p>
+              <a class="btn btn-card btn-primary-whatsapp" href="https://wa.me/5554996762378" target="_blank" rel="noreferrer" aria-label="Chamar no WhatsApp">Chamar no WhatsApp</a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="tcg-ecommerce section-dark" a ria-labelledby="tcg-title">
+        <div class="container tcg-grid">
+          <div class="tcg-copy reveal">
+            <p class="eyebrow">Cartas e e-commerce</p>
+            <h2 id="tcg-title">Cartinhas e colecionáveis em um só lugar</h2>
+            <p class="tcg-lead">
+              Magic, Pokémon, Yu-Gi-Oh!, decks, sleeves, acessórios e cartas para quem joga, coleciona ou está começando no universo card game.
+            </p>
+            <p>
+              Acesse o e-commerce da Radioativa, veja as opções disponíveis e faça seu pedido online com praticidade.
+            </p>
+            <div class="tcg-benefits" aria-label="Destaques do e-commerce de cartas">
+              <span>Cartas avulsas</span>
+              <span>Decks e acessórios</span>
+              <span>Magic, Pokémon e Yu-Gi-Oh!</span>
+              <span>Compra online</span>
+              <span>Novidades frequentes</span>
+            </div>
+            <a class="btn btn-primary tcg-cta" href="https://www.lojaradioativa.com.br/?view=ecom/home" target="_blank" rel="noreferrer">
+              Acessar e-commerce de cartas
+            </a>
+            <small>Confira as cartas disponíveis e faça seu pedido online.</small>
+          </div>
+
+          <div class="tcg-media reveal" aria-label="Cartas e produtos TCG da Radioativa">
+            <div class="tcg-photo tcg-photo-main placeholder-img" style="--image: url('assets/real-tcg.jpeg')"></div>
+            <div class="tcg-info-card tcg-info-top">
+              <strong>TCG</strong>
+              <span>cartas, decks e acessórios</span>
+            </div>
+            <div class="tcg-info-card tcg-info-bottom">
+              <strong>online</strong>
+              <span>pesquise cartas e faça seu pedido</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="about section-dark diagonal-about" id="sobre" aria-labelledby="about-title">
+        <div class="container about-grid">
+          <div class="about-media reveal">
+            <div class="tilted-frame placeholder-img" style="--image: url('assets/real-interior-wide.jpeg')"></div>
+          </div>
+          <div class="about-copy reveal">
+            <p class="eyebrow">Radioativa</p>
+            <h2 id="about-title">A loja mágica e terapêutica </h2>
+            <p>
+              A Radioativa Geek desperta nas pessoas somente boas emoções. Pois cada produto traz consigo memórias de momentos únicos.
+              Aquela série que assistiamos em família, o anime que nos motivou, o filme que tocou nossos corações...
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="why section-dark" aria-labelledby="why-title">
+        <div class="container">
+          <h2 id="why-title" class="center-title reveal">Por que visitar a <span>Radioativa?</span></h2>
+          <div class="why-grid">
+            <article class="why-card reveal">
+              <span class="why-icon icon-store" aria-hidden="true"></span>
+              <h3>Loja física em Passo Fundo</h3>
+              <p>Atendimento presencial para quem quer ver de perto, escolher com calma e comprar com segurança.</p>
+            </article>
+            <article class="why-card reveal">
+              <span class="why-icon icon-headset" aria-hidden="true"></span>
+              <h3>Atendimento humanizado</h3>
+              <p>A equipe entende o universo geek e ajuda você a encontrar o presente certo.</p>
+            </article>
+            <article class="why-card reveal">
+              <span class="why-icon icon-shirt" aria-hidden="true"></span>
+              <h3>Produtos para fãs especiais</h3>
+              <p>Itens para quem ama animes, games, filmes, séries, cultura pop e colecionáveis.</p>
+            </article>
+            <article class="why-card reveal">
+              <span class="why-icon icon-bolt" aria-hidden="true"></span>
+              <h3>Novidades frequentes</h3>
+              <p>A loja está sempre recebendo produtos novos para o clã.</p>
+            </article>
+            <article class="why-card reveal">
+              <span class="why-icon icon-gift" aria-hidden="true"></span>
+              <h3>Opções de presente</h3>
+              <p>Perfeito para aniversários, datas especiais ou para surpreender alguém que você gosta.</p>
+            </article>
+            <article class="why-card reveal">
+              <span class="why-icon icon-people" aria-hidden="true"></span>
+              <h3>Ambiente feito para fãs</h3>
+              <p>Uma loja feita por quem entende e vive a cultura geek.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="community section-dark diagonal-community" aria-labelledby="community-title">
+        <div class="container community-grid">
+          <div class="community-copy reveal">
+            <p class="eyebrow">Quem conhece,</p>
+            <h2 id="community-title">vira clã</h2>
+            <p>
+              Desde a abertura das portas, a Radioativa se tornou mais que uma loja, um ponto de encontro de quem ama este multiverso Geek.
+              Cada um que chega começa a fazer parte do CLÃ.
+            </p>
+          </div>
+          <div class="testimonials">
+            <article class="testimonial-card reveal">
+              <div class="testimonial-photo testimonial-one placeholder-img"></div>
+              <p>“Loja incrível para quem ama cultura geek.”</p>
+              <span aria-label="5 estrelas">★★★★★</span>
+            </article>
+            <article class="testimonial-card reveal">
+              <div class="testimonial-photo testimonial-two placeholder-img"></div>
+              <p>“Atendimento muito bom e produtos diferentes.”</p>
+              <span aria-label="5 estrelas">★★★★★</span>
+            </article>
+            <article class="testimonial-card reveal">
+              <div class="testimonial-photo testimonial-three placeholder-img"></div>
+              <p>“Sempre encontro presentes criativos por aqui.”</p>
+              <span aria-label="5 estrelas">★★★★★</span>
+            </article>
+          </div>
+          <button class="carousel-arrow arrow-left" type="button" aria-label="Depoimento anterior"></button>
+          <button class="carousel-arrow arrow-right" type="button" aria-label="Próximo depoimento"></button>
+        </div>
+      </section>
+
+      <section class="location section-light" id="loja-fisica" aria-labelledby="location-title">
+        <div class="container location-grid">
+          <div class="location-copy reveal">
+            <p class="eyebrow dark">Visite a</p>
+            <h2 id="location-title">Radioativa Geek</h2>
+            <p>
+              Estamos em Passo Fundo esperando por você com produtos geek, colecionáveis, camisetas, canecas, TCG e muitas novidades.
+            </p>
+            <address>R. Paissandu, 1850 - Passo Fundo, RS</address>
+            <div class="location-actions">
+              <a class="btn btn-primary" href="https://www.google.com/maps/search/?api=1&query=R.%20Paissandu%2C%201850%20-%20Passo%20Fundo%2C%20RS" target="_blank" rel="noreferrer">Abrir rota no Google Maps</a>
+              <a class="btn btn-primary btn-primary-whatsapp" href="https://www.lojaradioativa.com.br/?view=ecom%2Fitens&id=225853&page=1&tcg=1&ultimas=1&txt_carta=&txt_edicao=&txt_formato=&txt_card_tipo=&txt_custo=&txt_custo_cmc=&txt_lealdade=&txt_texto=&txt_artista=&txt_poder=&txt_resist=&txt_preco_de=&txt_preco_ate=&btBuscar=Buscar" target="_blank" rel="noreferrer" aria-label="Acessar novidades do site">Acessar novidades do site</a>
+            </div>
+          </div>
+          <div class="photo-stack reveal" aria-label="Fotos da loja">
+            <div class="stack-card stack-one placeholder-img"></div>
+            <div class="stack-card stack-two placeholder-img"></div>
+            <div class="stack-card stack-three placeholder-img"></div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer section-dark" id="contato">
+      <div class="container footer-grid">
+        <div>
+          <a class="brand footer-brand" href="#inicio" aria-label="Radioativa Geek">
+            <img
+              src="/images/radioativa-logo-transparente.png"
+              alt="Radioativa Geek"
+              class="logo"
+              onerror="this.hidden=true; this.nextElementSibling.hidden=false"
+            />
+            <span class="brand-fallback" hidden>
+              <span class="brand-mark" aria-hidden="true">
+                <span></span><span></span><span></span>
+              </span>
+              <span class="brand-text">
+                <strong>Radioativa</strong>
+                <small>Geek / Nerd</small>
+              </span>
+            </span>
+          </a>
+          <p>
+            A loja geek de Passo Fundo com os melhores produtos do universo pop, animes, games, filmes, séries, colecionáveis e presentes criativos.
+          </p>
+        </div>
+        <div>
+          <h3>Siga a Radioativa no Instagram</h3>
+          <a href="https://www.instagram.com/lojaradioativageek" target="_blank" rel="noreferrer">@lojaradioativageek</a>
+        </div>
+        <div>
+          <h3>Fale com a gente no WhatsApp</h3>
+          <a href="https://wa.me/5554996762378" target="_blank" rel="noreferrer">54 99676-2378</a>
+        </div>
+        <div>
+          <h3>Nossa localização</h3>
+          <p>R. Paissandu, 1850<br />Passo Fundo, RS</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Radioativa Geek. Todos os direitos reservados.</span>
+        <a href="https://lojaradioativa.com.br" target="_blank" rel="noreferrer">lojaradioativa.com.br</a>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
