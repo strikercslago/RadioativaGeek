@@ -19,7 +19,7 @@ export function Hero() {
     <picture className="hero__art"><source media="(max-width: 767px)" srcSet={`${assets}/hero/fachada-mobile.webp`} /><img decoding="async" src={`${assets}/hero/fachada-desktop.webp`} width="1672" height="941" alt="Fachada da loja Radioativa Geek Nerd, com entrada amarela e vitrine de produtos geek" fetchPriority="high" /></picture>
     <div className="container hero__inner">
       <div className="hero__copy">
-        <h1 id="hero-title"><span className="hero__eyebrow">A loja geek de</span><strong>Passo Fundo</strong><span className="hero__line">para quem vive a</span><em className="brush">Cultura Pop</em></h1>
+        <h1 id="hero-title"><span className="hero__eyebrow">A loja geek de</span><strong>Passo Fundo</strong><span className="hero__line">para quem vive a</span><em className="brush">Cultura Geek</em></h1>
         <p>Camisetas, canecas, Funkos, TCG, colecionáveis e presentes criativos para fãs de animes, games, filmes, séries e muito mais.</p>
         <div className="actions"><ContactButton message="Olá! Vim pelo site da Radioativa e queria saber mais sobre os produtos."><Icon name="whatsapp" />Ver produtos pelo WhatsApp</ContactButton><a className="button button--outline" href={STORE_INFO.mapsUrl} target="_blank" rel="noopener noreferrer"><Icon name="pin" />Como chegar na loja</a></div>
       </div>
@@ -51,7 +51,7 @@ const categories = [
   { image: "categories/colecionaveis-loja", title: "Funkos e Colecionáveis", description: "Personagens e histórias que merecem um lugar na sua estante.", message: "Olá! Vim pelo site e queria saber mais sobre Funkos e colecionáveis." },
   { image: "categories/cards-loja", title: "TCG e Cards", description: "Para quem joga, troca, coleciona e vive o universo card game.", message: "Olá! Vim pelo site e quero consultar os produtos de TCG e cards." },
   { image: "categories/presentes-loja", title: "Presentes Criativos", description: "Surpreenda quem você gosta com um presente cheio de personalidade.", message: "Olá! Preciso de ajuda para escolher um presente geek." },
-  { image: "store/pelucias", title: "E muito mais", description: "Seu próximo achado pode estar aqui. Venha descobrir o seu universo.", message: "Olá! Quero conhecer mais produtos da Radioativa Geek." },
+  { image: "categories/mais-produtos-loja", title: "E muito mais", description: "Seu próximo achado pode estar aqui. Venha descobrir o seu universo.", message: "Olá! Quero conhecer mais produtos da Radioativa Geek." },
 ];
 export function Categories() {
   return <section className="categories section textured" id="produtos" aria-labelledby="products-title"><div className="container">
