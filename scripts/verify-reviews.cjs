@@ -1,0 +1,41 @@
+const { chromium } = require(process.env.PLAYWRIGHT_MODULE || 'playwright');
+const fs = require('fs');
+(async () => {
+ const browser = await chromium.launch({headless:true,channel:process.env.BROWSER_CHANNEL || undefined});
+ const page = await browser.newPage(); const errors=[]; page.on('pageerror',e=>errors.push(e.message));
+ await page.goto(process.env.TEST_URL || 'http://localhost:3000',{waitUntil:'networkidle'});
+ const track=page.locator('.reviews-track').first(); const lane=page.locator('.reviews-lane').first();
+ const x=()=>track.evaluate(e=>new DOMMatrix(getComputedStyle(e).transform).m41);
+ const delay=()=>page.waitForTimeout(150);
+ const assert=(ok,message)=>{if(!ok)throw Error(message)};
+ const results=[];
+ for(const width of [375,430,768,1024,1366,1920]) {
+  await page.setViewportSize({width,height:1000});await lane.scrollIntoViewIfNeeded();
+  await page.locator('#depoimentos img').evaluateAll(imgs=>Promise.all(imgs.map(i=>{i.loading='eager';return i.decode()})));
+  const before=await x();await delay();assert(Math.abs(await x()-before)>1,'No automatic motion at '+width);
+  assert(await page.evaluate(()=>document.documentElement.scrollWidth===innerWidth),'Page overflow');
+  assert(await page.locator('#depoimentos img').evaluateAll(imgs=>imgs.every(i=>!i.clientWidth||Math.abs(i.clientWidth/i.clientHeight-4/3)<.02)),'Distorted images');
+  results.push({width,automatic:true,noOverflow:true});
+ }
+ const box=await lane.boundingBox();const px=box.x+400,py=box.y+100;
+ await page.mouse.move(px,py);let before=await x();await delay();assert(Math.abs(await x()-before)>1,'Hover paused loop');
+ await page.mouse.down();before=await x();await delay();assert(Math.abs(await x()-before)<.1,'Hold did not pause');
+ await page.mouse.move(px-100,py);assert(Math.abs((await x()-before)+100)<1,'Left drag failed');
+ before=await x();await page.mouse.move(px+50,py);const groupWidth=await page.locator('.reviews-group').first().evaluate(e=>e.getBoundingClientRect().width);
+ const delta=await x()-before;assert(Math.abs(delta-150)<1||Math.abs(delta-150+groupWidth)<1,'Right drag failed');
+ await page.mouse.up();before=await x();await delay();assert(Math.abs(await x()-before)>1,'Release did not resume');
+ const other=page.locator('.reviews-track').nth(1);before=await other.evaluate(e=>new DOMMatrix(getComputedStyle(e).transform).m41);await delay();assert(await other.evaluate(e=>new DOMMatrix(getComputedStyle(e).transform).m41)>before,'Second row direction wrong');
+ await page.setViewportSize({width:375,height:900});await lane.scrollIntoViewIfNeeded();
+ const mobileBox=await lane.boundingBox();const touchY=mobileBox.y+100;
+ const cdp=await page.context().newCDPSession(page);
+ await cdp.send('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[{x:180,y:touchY}]});
+ before=await x();await delay();assert(Math.abs(await x()-before)<.1,'Touch hold did not pause');
+ await cdp.send('Input.dispatchTouchEvent',{type:'touchMove',touchPoints:[{x:80,y:touchY}]});assert(Math.abs(await x()-before)>50,'Touch drag failed');
+ await cdp.send('Input.dispatchTouchEvent',{type:'touchEnd',touchPoints:[]});before=await x();await delay();assert(Math.abs(await x()-before)>1,'Touch release did not resume');
+ await page.emulateMedia({reducedMotion:'reduce'});before=await x();await delay();assert(Math.abs(await x()-before)<.1,'Reduced motion ignored');
+ await lane.focus();await page.keyboard.press('ArrowRight');assert(Math.abs(await x()-before)>100,'Keyboard failed');
+ assert(errors.length===0,errors.join('\n'));
+ fs.mkdirSync('tmp',{recursive:true});fs.writeFileSync('tmp/reviews-check.json',JSON.stringify({results,errors,checks:['hover continues','mouse hold / drag both ways / resume','opposite row directions','touch hold / drag / resume','reduced motion / keyboard']},null,2));
+ console.log('PASS: six widths, continuous motion, mouse and touch dragging, resume, opposite directions, reduced motion, keyboard; no page errors.');
+ await browser.close();
+})().catch(e=>{console.error(e);process.exit(1)});

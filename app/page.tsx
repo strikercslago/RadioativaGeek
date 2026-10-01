@@ -1,4 +1,5 @@
 import { Header } from "./components/Header";
+import { CardGames } from "./components/CardGames";
 import { MotionController } from "./components/MotionController";
 import { Hero, About, Categories, BrandStory, InstagramGallery, Benefits, Testimonials, StoreLocation, Footer, WhatsAppFloatingButton } from "./components/LandingSections";
 import { STORE_INFO } from "./store-info";
@@ -16,7 +17,7 @@ export default function Home() {
     <MotionController />
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
     <Header />
-    <main id="conteudo-principal"><Hero /><About /><Categories /><BrandStory /><InstagramGallery /><Benefits /><Testimonials /><StoreLocation /></main>
+    <main id="conteudo-principal"><Hero /><About /><Categories /><CardGames /><BrandStory /><InstagramGallery /><Benefits /><Testimonials /><StoreLocation /></main>
     <Footer /><WhatsAppFloatingButton />
   </>;
 }

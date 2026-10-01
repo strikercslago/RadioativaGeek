@@ -13,7 +13,7 @@ const fs = require('fs');
   await page.setViewportSize({width,height:900});
   await page.evaluate(()=>window.scrollTo(0,0));
   await page.waitForTimeout(150);
-  const result=await page.evaluate(()=>({width:innerWidth,scrollWidth:document.documentElement.scrollWidth,h1:document.querySelectorAll('h1').length,brokenImages:[...document.images].filter(i=>i.complete&&i.naturalWidth===0).map(i=>i.src),overflow:[...document.querySelectorAll('main *,header *,footer *')].filter(e=>{const r=e.getBoundingClientRect();return r.width&&r.right>innerWidth+1&&getComputedStyle(e).position!=='absolute'}).map(e=>e.className).slice(0,8)}));
+  const result=await page.evaluate(()=>({width:innerWidth,scrollWidth:document.documentElement.scrollWidth,h1:document.querySelectorAll('h1').length,brokenImages:[...document.images].filter(i=>i.complete&&i.naturalWidth===0).map(i=>i.src),overflow:[...document.querySelectorAll('main *,header *,footer *')].filter(e=>{const r=e.getBoundingClientRect();return !e.closest('.reviews-lane')&&r.width&&r.right>innerWidth+1&&getComputedStyle(e).position!=='absolute'}).map(e=>e.className).slice(0,8)}));
   results.push(result);
  }
  await page.setViewportSize({width:390,height:844});
@@ -24,8 +24,7 @@ const fs = require('fs');
  if(await menu.getAttribute('aria-expanded')!=='false')throw new Error('Menu did not close');
  await menu.click();await page.locator('#navigation a[href="#produtos"]').click();
  if(await menu.getAttribute('aria-expanded')!=='false')throw new Error('Navigation did not close menu');
- await page.locator('.testimonial-card summary').first().click();
- if(!await page.locator('.testimonial-card details').first().getAttribute('open').then(v=>v!==null))throw new Error('Testimonial did not expand');
+ if(await page.locator('.reviews-lane--1 .reviews-group').first().locator('img').count()!==7)throw new Error('Missing review images');
  await page.locator('.hero .button--primary').first().click();
  const dialog=page.locator('.hero dialog');
  if(await dialog.count()) {if(!await dialog.isVisible())throw new Error('Missing-number fallback did not open');await page.keyboard.press('Escape');}
@@ -33,7 +32,7 @@ const fs = require('fs');
  const invalidAnchors=await page.evaluate(()=>[...document.querySelectorAll('a[href^="#"]')].filter(a=>!document.getElementById(a.hash.slice(1))).map(a=>a.hash));
  await page.emulateMedia({reducedMotion:'reduce'});
  const reducedMotion=await page.evaluate(()=>getComputedStyle(document.documentElement).scrollBehavior);
- console.log(JSON.stringify({results,errors,invalidAnchors,reducedMotion,externalDestinations:[...new Set(links.filter(l=>/^https/.test(l.href)).map(l=>l.href))],checks:['mobile menu / Escape / close on navigation','expand testimonial','contact fallback / Escape','one H1','no broken images','valid internal links']},null,2));
+ console.log(JSON.stringify({results,errors,invalidAnchors,reducedMotion,externalDestinations:[...new Set(links.filter(l=>/^https/.test(l.href)).map(l=>l.href))],checks:['mobile menu / Escape / close on navigation','seven review images','contact fallback / Escape','one H1','no broken images','valid internal links']},null,2));
  fs.writeFileSync('tmp/browser-check.json',JSON.stringify({results,errors,invalidAnchors,reducedMotion},null,2));
  await browser.close();
  if(errors.length||invalidAnchors.length||results.some(r=>r.scrollWidth>r.width||r.overflow.length||r.brokenImages.length||r.h1!==1))process.exitCode=1;
