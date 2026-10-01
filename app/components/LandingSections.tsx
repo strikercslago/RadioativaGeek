@@ -16,7 +16,7 @@ export function UniverseIcons() {
 }
 export function Hero() {
   return <section className="hero" id="inicio" aria-labelledby="hero-title">
-    <picture className="hero__art"><source media="(max-width: 767px)" srcSet={`${assets}/hero/mobile.webp`} /><img decoding="async" src={`${assets}/hero/desktop.webp`} width="1672" height="941" alt="Composição da fachada Radioativa com vitrine e identidade preto e amarelo" fetchPriority="high" /></picture>
+    <picture className="hero__art"><source media="(max-width: 767px)" srcSet={`${assets}/hero/fachada-mobile.webp`} /><img decoding="async" src={`${assets}/hero/fachada-desktop.webp`} width="1672" height="941" alt="Fachada da loja Radioativa Geek Nerd, com entrada amarela e vitrine de produtos geek" fetchPriority="high" /></picture>
     <div className="container hero__inner">
       <div className="hero__copy">
         <h1 id="hero-title"><span className="hero__eyebrow">A loja geek de</span><strong>Passo Fundo</strong><span className="hero__line">para quem vive a</span><em className="brush">Cultura Pop</em></h1>
@@ -46,11 +46,11 @@ export function About() {
   </section>;
 }
 const categories = [
-  { image: "categories/camisetas", title: "Camisetas Geek", description: "Estampas inspiradas em animes, filmes, séries, games e cultura pop.", message: "Olá! Vim pelo site e quero conhecer as camisetas geek." },
-  { image: "categories/canecas", title: "Canecas Criativas", description: "Presentes úteis, divertidos e cheios de personalidade.", message: "Olá! Vim pelo site e queria ver as opções de canecas." },
-  { image: "categories/colecionaveis", title: "Funkos e Colecionáveis", description: "Personagens e histórias que merecem um lugar na sua estante.", message: "Olá! Vim pelo site e queria saber mais sobre Funkos e colecionáveis." },
-  { image: "categories/cards", title: "TCG e Cards", description: "Para quem joga, troca, coleciona e vive o universo card game.", message: "Olá! Vim pelo site e quero consultar os produtos de TCG e cards." },
-  { image: "categories/presentes", title: "Presentes Criativos", description: "Surpreenda quem você gosta com um presente cheio de personalidade.", message: "Olá! Preciso de ajuda para escolher um presente geek." },
+  { image: "categories/camisetas-loja", title: "Camisetas Geek", description: "Estampas inspiradas em animes, filmes, séries, games e cultura pop.", message: "Olá! Vim pelo site e quero conhecer as camisetas geek." },
+  { image: "categories/canecas-loja", title: "Canecas Criativas", description: "Presentes úteis, divertidos e cheios de personalidade.", message: "Olá! Vim pelo site e queria ver as opções de canecas." },
+  { image: "categories/colecionaveis-loja", title: "Funkos e Colecionáveis", description: "Personagens e histórias que merecem um lugar na sua estante.", message: "Olá! Vim pelo site e queria saber mais sobre Funkos e colecionáveis." },
+  { image: "categories/cards-loja", title: "TCG e Cards", description: "Para quem joga, troca, coleciona e vive o universo card game.", message: "Olá! Vim pelo site e quero consultar os produtos de TCG e cards." },
+  { image: "categories/presentes-loja", title: "Presentes Criativos", description: "Surpreenda quem você gosta com um presente cheio de personalidade.", message: "Olá! Preciso de ajuda para escolher um presente geek." },
   { image: "store/pelucias", title: "E muito mais", description: "Seu próximo achado pode estar aqui. Venha descobrir o seu universo.", message: "Olá! Quero conhecer mais produtos da Radioativa Geek." },
 ];
 export function Categories() {
@@ -71,7 +71,7 @@ export function BrandStory() {
 export function InstagramGallery() {
   return <section className="instagram yellow-section" aria-labelledby="instagram-title"><div className="container instagram__grid">
     <div data-reveal><SectionTitle id="instagram-title">Novidades sempre<br />na Radioativa</SectionTitle><p>Produtos novos, lançamentos, eventos e curiosidades aparecem primeiro no Instagram.</p><a className="button button--dark" href={STORE_INFO.instagramUrl} target="_blank" rel="noopener noreferrer"><Icon name="instagram" />Seguir @lojaradioativageek</a></div>
-    <div className="social-gallery">{[["categories/colecionaveis", "Colecionáveis"], ["store/vitrine", "Universo geek"], ["store/caneca", "Canecas criativas"]].map(([src, alt]) => <a href={STORE_INFO.instagramUrl} key={src} target="_blank" rel="noopener noreferrer" aria-label={`Conhecer ${alt.toLowerCase()} no Instagram`}><img decoding="async" src={`${assets}/${src}.webp`} alt={alt} width="400" height="400" loading="lazy" /><span><Icon name="instagram" /></span></a>)}</div>
+    <div className="social-gallery social-gallery--instagram">{[["instagram/logo", "Instagram da Radioativa"], ["instagram/perfil", "Perfil @lojaradioativageek no Instagram"], ["instagram/publicacoes", "Publicações com produtos e novidades da Radioativa"]].map(([src, alt]) => <a href={STORE_INFO.instagramUrl} key={src} target="_blank" rel="noopener noreferrer" aria-label={`Conhecer ${alt.toLowerCase()} no Instagram`}><img decoding="async" src={`${assets}/${src}.webp`} alt={alt} width="400" height="400" loading="lazy" /><span><Icon name="instagram" /></span></a>)}</div>
   </div></section>;
 }
 export function Benefits() {
@@ -80,16 +80,16 @@ export function Benefits() {
 }
 export function Testimonials() {
   return <section className="reviews-section section" id="depoimentos" aria-labelledby="testimonials-title">
-    <div className="container reviews-heading">
+    <div className="container reviews-heading" data-reveal>
       <SectionTitle eyebrow="Histórias que fazem parte da nossa" id="testimonials-title">Quem conhece,<br /><span className="brush">vira fã.</span></SectionTitle>
       <div className="reviews-intro"><p>Mais do que clientes, a Radioativa reúne pessoas que criaram histórias, memórias e uma relação especial com a loja.</p><p className="reviews-proof"><span aria-label="5 estrelas">★★★★★</span> Avaliações reais de clientes</p></div>
     </div>
     <ReviewMarquee />
-    <div className="container reviews-invitation"><div><h3>Sua história também faz parte da nossa.</h3><p>Já visitou a Radioativa? Conte como foi sua experiência e deixe sua avaliação no Google.</p></div><a className="button button--dark" href={STORE_INFO.reviewsUrl} target="_blank" rel="noopener noreferrer">Avaliar a loja no Google <span aria-hidden="true">↗</span></a></div>
+    <div className="container reviews-invitation" data-reveal><div><h3>Sua história também faz parte da nossa.</h3><p>Já visitou a Radioativa? Conte como foi sua experiência e deixe sua avaliação no Google.</p></div><a className="button button--dark" href={STORE_INFO.reviewsUrl} target="_blank" rel="noopener noreferrer">Avaliar a loja no Google <span aria-hidden="true">↗</span></a></div>
   </section>;
 }
 export function StoreLocation() {
-  return <section className="visit" id="visite" aria-labelledby="visit-title"><div className="container visit__grid"><div className="visit__copy" data-reveal><SectionTitle eyebrow="Seu universo tem endereço" id="visit-title">Visite a<br /><span>Radioativa Geek</span></SectionTitle><p>Estamos em Passo Fundo esperando por você com produtos geek, colecionáveis, camisetas, canecas, TCG e muitas novidades.</p><address><Icon name="pin" /><span>Rua Paissandu, 1850 · Centro<br />Passo Fundo, RS</span></address><div className="actions"><a className="button button--primary" href={STORE_INFO.mapsUrl} target="_blank" rel="noopener noreferrer"><Icon name="pin" />Ver loja no Google Maps</a><ContactButton className="button button--outline"><Icon name="whatsapp" />Chamar no WhatsApp</ContactButton></div></div><div className="visit__photo"><img decoding="async" src={`${assets}/hero/desktop.webp`} width="1672" height="941" alt="Fachada da Radioativa na arte fornecida para o site" loading="lazy" /><span className="visit__badge"><Icon name="store" />Te esperamos por aqui!</span></div></div><div className="container visit-map"><iframe src={STORE_INFO.mapsEmbedUrl} title="Localização da Loja Radioativa Geek Nerd no Google Maps" loading="lazy" referrerPolicy="no-referrer-when-downgrade" allowFullScreen /><a className="text-link" href={STORE_INFO.mapsUrl} target="_blank" rel="noopener noreferrer">Abrir mapa no Google Maps <span aria-hidden="true">↗</span></a></div></section>;
+  return <section className="visit" id="visite" aria-labelledby="visit-title"><div className="container visit__grid"><div className="visit__copy" data-reveal><SectionTitle eyebrow="Seu universo tem endereço" id="visit-title">Visite a<br /><span>Radioativa Geek</span></SectionTitle><p>Estamos em Passo Fundo esperando por você com produtos geek, colecionáveis, camisetas, canecas, TCG e muitas novidades.</p><address><Icon name="pin" /><span>Rua Paissandu, 1850 · Centro<br />Passo Fundo, RS</span></address><div className="actions"><a className="button button--primary" href={STORE_INFO.mapsUrl} target="_blank" rel="noopener noreferrer"><Icon name="pin" />Ver loja no Google Maps</a><ContactButton className="button button--outline"><Icon name="whatsapp" />Chamar no WhatsApp</ContactButton></div></div><div className="visit__photo"><img decoding="async" src={`${assets}/hero/desktop.webp`} width="1672" height="941" alt="Fachada da Radioativa na arte fornecida para o site" loading="lazy" /><span className="visit__badge"><Icon name="store" />Te esperamos por aqui!</span></div></div><div className="visit-map"><iframe src={STORE_INFO.mapsEmbedUrl} title="Localização da Loja Radioativa Geek Nerd no Google Maps" loading="lazy" referrerPolicy="no-referrer-when-downgrade" allowFullScreen /></div></section>;
 }
 export function Footer() {
   return <footer id="contato" className="footer"><div className="container"><div className="footer__top"><div className="footer__brand"><a href="#inicio" aria-label="Voltar ao início"><img decoding="async" src={`${assets}/logos/logo.webp`} alt="Radioativa Geek / Nerd" width="220" height="104" loading="lazy" /></a><p>Todo fã tem um universo.<br />A Radioativa é onde eles se encontram.</p></div><div><h2>Explore a Radioativa</h2><a href="#inicio">Início</a><a href="#produtos">Produtos</a><a href="#sobre">Nossa história</a><a href="#visite">Loja física</a></div><div><h2>Vamos conversar?</h2><a href={STORE_INFO.instagramUrl} target="_blank" rel="noopener noreferrer">{STORE_INFO.instagramHandle} ↗</a><ContactButton className="footer-contact">Chamar no WhatsApp ↗</ContactButton><p>Rua Paissandu, 1850 · Centro<br />Passo Fundo, RS</p></div></div><div className="footer__bottom"><p>© 2026 Radioativa Geek. Todos os direitos reservados.</p><p>Desenvolvido com <span>♥</span> para fãs de cultura pop.</p></div></div></footer>;
