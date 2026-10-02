@@ -24,7 +24,7 @@ export function Header() {
   }, []);
   return <header className="header" ref={header}>
     <div className="container header__inner">
-      <a className="brand" href="#inicio" aria-label="Radioativa Geek — início" onClick={() => setOpen(false)}><img decoding="async" src="/assets/radioativa/logos/logo.webp" alt="Radioativa Geek / Nerd" width="240" height="113" /></a>
+      <a className="brand" href="#inicio" aria-label="Radioativa Geek — início" onClick={() => setOpen(false)}><img decoding="async" src="/assets/radioativa/logos/logo-oficial.webp" alt="Radioativa Geek / Nerd" width="240" height="113" /></a>
       <nav className={`nav ${open ? "nav--open" : ""}`} id="navigation" aria-label="Navegação principal">
         {links.map(([id, title]) => <a key={id} href={`#${id}`} aria-current={active === id ? "location" : undefined} onClick={() => setOpen(false)}>{title}</a>)}
       </nav>

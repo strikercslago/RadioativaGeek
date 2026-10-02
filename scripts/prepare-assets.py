@@ -17,11 +17,9 @@ def save(image, name, width, quality=85):
 
 save(source_image('-5'), 'hero/desktop.webp', 1672, 78)
 save(source_image('-6').crop((0, 330, 941, 1672)), 'hero/mobile.webp', 750, 72)
-logos = source_image('-2')
-save(logos.crop((190, 0, 1330, 538)), 'logos/logo.webp', 360, 82)
-icon = logos.crop((985, 545, 1265, 820))
-save(icon.copy(), 'logos/symbol.webp', 160, 95)
-icon.resize((64, 64), Image.Resampling.LANCZOS).save(root / 'app/icon.png')
+# Always use the official client artwork for the logo and favicon.
+import runpy
+runpy.run_path(str(root / 'scripts/prepare-brand.py'))
 
 sheet = source_image('-7')
 for name, box in {

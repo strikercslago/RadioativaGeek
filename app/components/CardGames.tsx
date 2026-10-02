@@ -6,7 +6,7 @@ export function CardGames() {
   return <section className="cardgames" id="card-games" aria-labelledby="cardgames-title">
     <div className="cardgames__layout">
       <div className="cardgames__copy">
-        <img className="cardgames__logo" src="/assets/radioativa/logos/logo.webp" width="220" height="104" alt="Radioativa Geek / Nerd" loading="lazy" decoding="async" />
+        <img className="cardgames__logo" src="/assets/radioativa/logos/logo-oficial.webp" width="220" height="104" alt="Radioativa Geek / Nerd" loading="lazy" decoding="async" />
         <p className="cardgames__eyebrow">Loja oficial da Radioativa</p>
         <h2 id="cardgames-title">Seu próximo<span className="brush">Duelo começa aqui!</span></h2>
         <p className="cardgames__description"><strong>Magic, Pokémon, Yu-Gi-Oh!, Digimon,</strong> acessórios, produtos selados e muito mais na loja oficial da <strong>Radioativa.</strong></p>
